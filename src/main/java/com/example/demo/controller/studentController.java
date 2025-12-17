@@ -7,7 +7,7 @@ import com.example.demo.entity.*;
 public class studentController {
 
     @Autowired
-    
+    private 
 
     @GetMapping("/getAllStudent")
     public List<studentEntity> getAll(){
