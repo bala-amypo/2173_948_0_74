@@ -1,7 +1,7 @@
 package com.example.demo.exception;
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.MethodArguementNotValidException;
+import org.springframework.web.bind.annotation.MethodArguementNotValidException;
 import java.util.*;
 import org.springframework.http.ResponseEntity;
 
@@ -9,12 +9,12 @@ import org.springframework.http.ResponseEntity;
 public class globalExceptionHandler{
 
     @ExceptionHandler(MethodArguementNotValidException.class)
-    public ResponseEntity<?> handleFieldError(MethodArguementNotValidException ex){
+    public ResponseEntity<?>handleFieldError(MethodArguementNotValidException ex){
         Map<String,String> error = new HashMap<>();
 
         ex.getBindingResult().getFieldsError().forEach( err -> error.put(ex.getFields(),ex.getDefualtMessage()));
 
-        return new ResponseEntity<>(error, HttpStatus.BAD-REQUEST);
+        return new ResponseEntity<>(error,HttpStatus.BAD-REQUEST);
     }
 
 }
