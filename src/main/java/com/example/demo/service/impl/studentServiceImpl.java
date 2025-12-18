@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.service.*;
 import com.example.demo.repository.*;
 import com.example.demo.entity.*;
+import com.example.demo.exception.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,6 @@ public class studentServiceImpl implements studentService{
     }
 
     public studentEntity getbyId(Long id){
-        return repo.findById(id).orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
+        return repo.findById(id).orElseThrow(() -> new StudentNotFoundException(errMsg:"Student ID not Found"));
     }
 }
